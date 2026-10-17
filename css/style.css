@@ -1,0 +1,302 @@
+/* ===== Design-Token ===== */
+:root {
+  --stout: #2b1a0e;        /* Text, dunkle Flächen */
+  --malz: #7a3e12;         /* Akzent dunkel */
+  --lager: #e8a317;        /* Akzent hell */
+  --hopfen: #4f7a28;       /* Links, Fokus */
+  --schaum: #fffdf6;       /* Hintergrund */
+  --kronkorken: #e9e4d6;   /* Linien */
+  --abstand: 1rem;
+  --radius-gross: 1.5rem;
+  --schrift-titel: "Bitter", Georgia, serif;
+  --schrift-text: "Source Sans 3", system-ui, sans-serif;
+
+  /* Bierfarben nach EBC (hell → dunkel) */
+  --ebc-4: #f8e27a;
+  --ebc-8: #f1c232;
+  --ebc-13: #e2a019;
+  --ebc-20: #c77a14;
+  --ebc-28: #a85a14;
+  --ebc-40: #7c3b10;
+  --ebc-70: #4a210b;
+  --ebc-80: #1f1008;
+}
+
+/* ===== Grundlagen ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: var(--schrift-text);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--stout);
+  background: var(--schaum);
+}
+
+h1, h2, h3, .logo {
+  font-family: var(--schrift-titel);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 900;
+  margin: 0 0 var(--abstand);
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+a {
+  color: var(--hopfen);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--lager);
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: calc(var(--abstand) * 2) var(--abstand);
+}
+
+.lead {
+  font-size: 1.2rem;
+  max-width: 40rem;
+}
+
+/* ===== Kopfzeile (Flexbox) ===== */
+.site-header {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--abstand) / 2);
+  padding: var(--abstand);
+  background: var(--stout);
+  color: var(--schaum);
+}
+
+.logo {
+  color: var(--lager);
+  font-size: 1.4rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--abstand);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-header .nav-list a {
+  color: var(--schaum);
+  text-decoration: none;
+  padding-bottom: 0.15rem;
+  border-bottom: 2px solid transparent;
+}
+
+.site-header .nav-list a:hover,
+.site-header .nav-list a[aria-current="page"] {
+  border-bottom-color: var(--lager);
+}
+
+/* ===== Startseite ===== */
+.hero {
+  padding: calc(var(--abstand) * 2) 0;
+  border-bottom: 2px dashed var(--kronkorken);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--abstand);
+}
+
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border: 2px solid var(--malz);
+  border-radius: 999px;
+  background: var(--malz);
+  color: var(--schaum);
+  font: 600 1rem var(--schrift-text);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--stout);
+  border-color: var(--stout);
+}
+
+.button-ghost {
+  background: transparent;
+  color: var(--malz);
+}
+
+/* ===== Bier-Karten (Grid) ===== */
+.beer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--abstand);
+}
+
+.beer-card {
+  display: grid;
+  grid-template-columns: 1.25rem 1fr;
+  column-gap: var(--abstand);
+  padding: var(--abstand);
+  background: #fff;
+  border: 1px solid var(--kronkorken);
+  border-radius: 0.5rem;
+}
+
+.beer-card > :not(.beer-color) {
+  grid-column: 2;
+  margin: 0;
+}
+
+.beer-color {
+  grid-row: 1 / span 3;
+  border-radius: 999px;
+  background: var(--farbe);
+}
+
+.ebc-4  { --farbe: var(--ebc-4); }
+.ebc-8  { --farbe: var(--ebc-8); }
+.ebc-13 { --farbe: var(--ebc-13); }
+.ebc-20 { --farbe: var(--ebc-20); }
+.ebc-28 { --farbe: var(--ebc-28); }
+.ebc-40 { --farbe: var(--ebc-40); }
+.ebc-70 { --farbe: var(--ebc-70); }
+.ebc-80 { --farbe: var(--ebc-80); }
+
+.beer-card h2,
+.beer-card h3 {
+  font-size: 1.2rem;
+}
+
+.beer-meta {
+  color: var(--malz);
+}
+
+.score {
+  font-family: var(--schrift-titel);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+/* ===== Länder-Wertung ===== */
+.ranking {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ranking caption {
+  text-align: left;
+  padding-bottom: calc(var(--abstand) / 2);
+  color: var(--malz);
+}
+
+.ranking th,
+.ranking td {
+  padding: 0.6rem 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--kronkorken);
+}
+
+.ranking meter {
+  width: 6rem;
+  vertical-align: middle;
+}
+
+/* ===== Formular ===== */
+.rating-form {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--abstand) / 2);
+  max-width: 32rem;
+}
+
+.rating-form input[type="text"],
+.rating-form select,
+.rating-form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  font: inherit;
+  border: 1px solid var(--malz);
+  border-radius: 0.4rem;
+  background: #fff;
+}
+
+.rating-form fieldset {
+  border: 1px solid var(--kronkorken);
+  border-radius: 0.4rem;
+}
+
+.stars {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.rating-form .button {
+  align-self: flex-start;
+  margin-top: var(--abstand);
+}
+
+/* ===== Über-Seite ===== */
+.prose {
+  max-width: 40rem;
+}
+
+/* ===== Fußzeile ===== */
+.site-footer {
+  padding: calc(var(--abstand) * 2) var(--abstand);
+  background: var(--stout);
+  color: var(--kronkorken);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ===== Größere Bildschirme (Mobile-First) ===== */
+@media (min-width: 48rem) {
+  .site-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--abstand) calc(var(--abstand) * 2);
+  }
+
+  .beer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .beer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

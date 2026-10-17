@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bewerten · Bierkarte der Welt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">Bierkarte der Welt</a>
+    <nav aria-label="Hauptnavigation">
+      <ul class="nav-list">
+        <li><a href="index.html">Start</a></li>
+        <li><a href="biere.html">Biere</a></li>
+        <li><a href="laender.html">Länder</a></li>
+        <li><a href="bewerten.html" aria-current="page">Bewerten</a></li>
+        <li><a href="about.html">Über</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section aria-labelledby="bewerten-titel">
+      <h1 id="bewerten-titel">Bier bewerten</h1>
+      <p class="lead">Du hast ein Bier probiert? Erzähl uns, wie es war.</p>
+      <form class="rating-form" action="/bewertungen" method="post">
+        <label for="bier">Name des Biers</label>
+        <input id="bier" name="bier" type="text" autocomplete="off" required>
+
+        <label for="land">Herkunftsland</label>
+        <select id="land" name="land" required>
+          <option value="">Bitte wählen</option>
+          <option value="de">Deutschland</option>
+          <option value="cz">Tschechien</option>
+          <option value="be">Belgien</option>
+          <option value="ie">Irland</option>
+          <option value="us">USA</option>
+          <option value="jp">Japan</option>
+          <option value="mx">Mexiko</option>
+          <option value="andere">Anderes Land</option>
+        </select>
+
+        <fieldset>
+          <legend>Deine Bewertung</legend>
+          <div class="stars">
+            <input id="s1" name="sterne" type="radio" value="1" required><label for="s1">1</label>
+            <input id="s2" name="sterne" type="radio" value="2"><label for="s2">2</label>
+            <input id="s3" name="sterne" type="radio" value="3"><label for="s3">3</label>
+            <input id="s4" name="sterne" type="radio" value="4"><label for="s4">4</label>
+            <input id="s5" name="sterne" type="radio" value="5"><label for="s5">5</label>
+          </div>
+        </fieldset>
+
+        <label for="kommentar">Kommentar (optional)</label>
+        <textarea id="kommentar" name="kommentar" rows="4"></textarea>
+
+        <button class="button" type="submit">Bewertung abschicken</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Bierkarte der Welt · Semesterprojekt Web-Applikationen, HTWG Konstanz, WS 2026/27</p>
+    <p>Alle Bewertungen sind Beispieldaten für den Prototyp. Genieße verantwortungsvoll.</p>
+  </footer>
+</body>
+</html>

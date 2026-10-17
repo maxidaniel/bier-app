@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start · Bierkarte der Welt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">Bierkarte der Welt</a>
+    <nav aria-label="Hauptnavigation">
+      <ul class="nav-list">
+        <li><a href="index.html" aria-current="page">Start</a></li>
+        <li><a href="biere.html">Biere</a></li>
+        <li><a href="laender.html">Länder</a></li>
+        <li><a href="bewerten.html">Bewerten</a></li>
+        <li><a href="about.html">Über</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Welches Land braut das beste Bier?</h1>
+      <p class="lead">Wir sammeln Bewertungen von Bieren aus aller Welt und rechnen aus, welches Land vorne liegt. Probier, bewerte und vergleiche.</p>
+      <p class="hero-actions">
+        <a class="button" href="bewerten.html">Bier bewerten</a>
+        <a class="button button-ghost" href="laender.html">Zur Länder-Wertung</a>
+      </p>
+    </section>
+
+    <section class="top" aria-labelledby="top-titel">
+      <h2 id="top-titel">Die drei bestbewerteten Biere</h2>
+      <div class="beer-grid">
+        <article class="beer-card">
+          <div class="beer-color ebc-8" aria-hidden="true"></div>
+          <h3>Augustiner Lagerbier Hell</h3>
+          <p class="beer-meta">Deutschland · Helles</p>
+          <p class="beer-rating"><span class="score">4,7</span> von 5</p>
+        </article>
+        <article class="beer-card">
+          <div class="beer-color ebc-8" aria-hidden="true"></div>
+          <h3>Pilsner Urquell</h3>
+          <p class="beer-meta">Tschechien · Pilsner</p>
+          <p class="beer-rating"><span class="score">4,6</span> von 5</p>
+        </article>
+        <article class="beer-card">
+          <div class="beer-color ebc-13" aria-hidden="true"></div>
+          <h3>Westmalle Tripel</h3>
+          <p class="beer-meta">Belgien · Tripel</p>
+          <p class="beer-rating"><span class="score">4,6</span> von 5</p>
+        </article>
+      </div>
+      <p><a href="biere.html">Alle Biere ansehen</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Bierkarte der Welt · Semesterprojekt Web-Applikationen, HTWG Konstanz, WS 2026/27</p>
+    <p>Alle Bewertungen sind Beispieldaten für den Prototyp. Genieße verantwortungsvoll.</p>
+  </footer>
+</body>
+</html>
