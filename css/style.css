@@ -385,3 +385,130 @@ main {
   border-radius: 2px;
 }
 
+.ranking a {
+  color: var(--stout);
+  text-decoration: none;
+}
+
+.ranking a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Karte ===== */
+.karte-layout {
+  display: grid;
+  gap: calc(var(--abstand) * 1.5);
+  margin-bottom: calc(var(--abstand) * 2);
+}
+
+.karte {
+  margin: 0;
+  border: 1px solid var(--kronkorken);
+  border-radius: var(--radius-gross);
+  overflow: hidden;
+  background: #fff;
+}
+
+.europa {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.land-grau {
+  fill: var(--kronkorken);
+  stroke: #fff;
+  stroke-width: 0.6;
+}
+
+.land {
+  fill: var(--lager);
+  stroke: #fff;
+  stroke-width: 0.8;
+  cursor: pointer;
+  transition: fill 0.15s;
+}
+
+.land:hover {
+  fill: var(--ebc-20);
+}
+
+.land.aktiv {
+  fill: var(--malz);
+}
+
+.flagge-karte {
+  cursor: pointer;
+  transition: transform 0.15s;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.flagge-karte:hover,
+.flagge-karte.aktiv {
+  transform: scale(1.4);
+}
+
+.klein {
+  font-size: 1.1rem;
+  margin-top: 0;
+}
+
+.land-knoepfe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.land-knopf {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--malz);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--stout);
+  font: inherit;
+  cursor: pointer;
+}
+
+.land-knopf:hover {
+  border-color: var(--lager);
+}
+
+.land-knopf[aria-pressed="true"] {
+  background: var(--malz);
+  border-color: var(--malz);
+  color: var(--schaum);
+}
+
+.land-auswahl h2 {
+  margin-bottom: 0.25rem;
+}
+
+/* ===== Bewerten: Ergebnis ===== */
+.ergebnis {
+  max-width: 32rem;
+  margin-top: calc(var(--abstand) * 2);
+  padding: var(--abstand) calc(var(--abstand) * 1.5);
+  border-left: 6px solid var(--hopfen);
+  border-radius: 0.5rem;
+  background: #fff;
+}
+
+.ergebnis h2 {
+  margin-top: 0;
+}
+
+@media (min-width: 64rem) {
+  .karte-layout {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
+
+  .land-knoepfe {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/start.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -16,6 +17,7 @@
       <ul class="nav-list">
         <li><a href="index.html" aria-current="page">Start</a></li>
         <li><a href="biere.html">Biere</a></li>
+        <li><a href="karte.html">Karte</a></li>
         <li><a href="laender.html">Länder</a></li>
         <li><a href="bewerten.html">Bewerten</a></li>
         <li><a href="about.html">Über</a></li>
@@ -35,27 +37,10 @@
 
     <section class="top" aria-labelledby="top-titel">
       <h2 id="top-titel">Die drei bestbewerteten Biere</h2>
-      <div class="beer-grid">
-        <article class="beer-card">
-          <div class="beer-color ebc-8" aria-hidden="true"></div>
-          <h3>Augustiner Lagerbier Hell</h3>
-          <p class="beer-meta">Deutschland · Helles</p>
-          <p class="beer-rating"><span class="score">4,7</span> von 5</p>
-        </article>
-        <article class="beer-card">
-          <div class="beer-color ebc-8" aria-hidden="true"></div>
-          <h3>Pilsner Urquell</h3>
-          <p class="beer-meta">Tschechien · Pilsner</p>
-          <p class="beer-rating"><span class="score">4,6</span> von 5</p>
-        </article>
-        <article class="beer-card">
-          <div class="beer-color ebc-13" aria-hidden="true"></div>
-          <h3>Westmalle Tripel</h3>
-          <p class="beer-meta">Belgien · Tripel</p>
-          <p class="beer-rating"><span class="score">4,6</span> von 5</p>
-        </article>
+      <div id="top-liste" class="beer-grid">
+        <p>Biere werden geladen …</p>
       </div>
-      <p><a href="biere.html">Alle Biere ansehen</a></p>
+      <p><a href="biere.html">Alle Biere ansehen</a> · <a href="karte.html">Biere auf der Karte entdecken</a></p>
     </section>
   </main>
 

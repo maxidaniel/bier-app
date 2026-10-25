@@ -14,15 +14,20 @@ Die Bierkarte der Welt sammelt Bewertungen von Bieren aus vielen Ländern und re
 |---|---|
 | `/` bzw. `/index.html` | Startseite mit den drei bestbewerteten Bieren |
 | `/biere.html` | Alle Biere mit Farbe, Land, Sorte und Bewertung |
+| `/karte.html` | Europakarte mit Flaggen, Klick auf ein Land zeigt seine Biere (`karte.html?land=de`) |
 | `/laender.html` | Länder-Wertung (Durchschnitt pro Land) |
-| `/bewerten.html` | Formular zum Bewerten eines Biers |
+| `/bewerten.html` | Bier aus der Liste wählen und bewerten (`bewerten.html?bier=…` wählt vor) |
 | `/bier.html?id=…` | Detailseite zu einem Bier (z. B. `bier.html?id=tegernseer-hell`) |
 | `/about.html` | Über das Projekt |
 | `/css/style.css` | Gemeinsames Stylesheet für alle Seiten |
 | `/biere.json` | Bier-Daten (werden per `fetch` geladen) |
-| `/js/daten.js` | Gemeinsames Modul: Daten laden, sortieren, Karten bauen |
+| `/js/daten.js` | Gemeinsames Modul: Daten laden, eigene Bewertungen, Auswertungen, Karten bauen |
+| `/js/start.js` | Top 3 auf der Startseite |
 | `/js/biere.js` | Bierliste aufbauen + Live-Suche |
 | `/js/bier.js` | Detailseite füllen |
+| `/js/karte.js` | Karte: Land wählen, Biere des Landes zeigen |
+| `/js/laender.js` | Länder-Wertung berechnen |
+| `/js/bewerten.js` | Formular: Auswahl füllen, Bewertung speichern, neuen Platz zeigen |
 | `/img/flaggen/` | Flaggen als SVG |
 
 ## Kriterien-Zuordnung M1
@@ -48,12 +53,15 @@ Dann http://localhost:8000 öffnen.
 
 ## JavaScript
 
-Auf der Seite „Biere“ werden alle Biere aus `biere.json` geladen und als Karten angezeigt. Über das Suchfeld filtert man sie live nach Name, Land, Sorte oder Brauerei. Ein Klick auf ein Bier öffnet seine Detailseite (`bier.html?id=…`).
+- **Biere:** Alle Biere werden aus `biere.json` geladen. Das Suchfeld filtert sie live nach Name, Land, Sorte oder Brauerei. Ein Klick auf ein Bier öffnet seine Detailseite.
+- **Karte:** Eine Europakarte (SVG). Klick auf ein Land, eine Flagge oder einen Länder-Knopf zeigt die Biere dieses Landes.
+- **Bewerten:** Man wählt ein Bier aus der Liste und vergibt 1 bis 5 Sterne. Die Bewertung wird im Browser gespeichert (`localStorage`) und sofort eingerechnet. Danach zeigt die Seite den neuen Durchschnitt und den Platz.
+- **Startseite und Länder-Wertung** werden aus denselben Daten berechnet.
 
 Wichtig: Wegen `fetch` und JavaScript-Modulen nicht per Doppelklick öffnen, sondern über den lokalen Server starten (siehe oben).
 
 ## Daten und Quellen
 
 - Die Länder sind die zehn Länder mit dem höchsten Bierkonsum pro Kopf 2024 (Kirin Holdings, Global Beer Consumption by Country) plus die Länder aus dem ersten Prototyp.
-- Flaggen: flag-icons von Panayiotis Lipiridis (MIT-Lizenz).
+- Kartendaten: Natural Earth (gemeinfrei). Flaggen: flag-icons von Panayiotis Lipiridis (MIT-Lizenz).
 - Bewertungen sind Beispieldaten, Alkoholwerte sind Richtwerte.

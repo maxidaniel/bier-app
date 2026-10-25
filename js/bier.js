@@ -1,5 +1,5 @@
 // Detailseite: bier.html?id=tegernseer-hell zeigt genau ein Bier
-import { ladeBiere, rangliste, formatZahl, flagge } from "./daten.js";
+import { ladeBiere, rangliste, eigeneBewertungen, formatZahl, flagge } from "./daten.js";
 
 const bereich = document.querySelector("#bier-detail");
 
@@ -11,7 +11,7 @@ function fakt(liste, bezeichnung, wert) {
   const dt = document.createElement("dt");
   dt.textContent = bezeichnung;
   const dd = document.createElement("dd");
-  dd.textContent = wert;
+  dd.append(wert);
   liste.append(dt, dd);
 }
 
@@ -41,7 +41,7 @@ function zeigeBier(bier, platz, gesamt) {
   aktionen.className = "hero-actions";
   const bewerten = document.createElement("a");
   bewerten.className = "button";
-  bewerten.href = "bewerten.html";
+  bewerten.href = `bewerten.html?bier=${encodeURIComponent(bier.id)}`; // Formular wählt das Bier vor
   bewerten.textContent = "Dieses Bier bewerten";
   const zurueck = document.createElement("a");
   zurueck.className = "button button-ghost";
@@ -50,6 +50,20 @@ function zeigeBier(bier, platz, gesamt) {
   aktionen.append(bewerten, zurueck);
 
   bereich.replaceChildren(farbe, h1, meta, fakten, aktionen);
+
+  // Eigene Bewertungen zu diesem Bier anzeigen (falls vorhanden)
+  const meine = eigeneBewertungen()[bier.id] ?? [];
+  if (meine.length > 0) {
+    const h2 = document.createElement("h2");
+    h2.textContent = "Deine Bewertungen";
+    const ul = document.createElement("ul");
+    for (const b of meine) {
+      const li = document.createElement("li");
+      li.textContent = b.kommentar ? `${b.sterne} von 5 – „${b.kommentar}“` : `${b.sterne} von 5`;
+      ul.append(li);
+    }
+    bereich.append(h2, ul);
+  }
 }
 
 function zeigeFehler(text) {

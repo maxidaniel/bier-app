@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/laender.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -16,6 +17,7 @@
       <ul class="nav-list">
         <li><a href="index.html">Start</a></li>
         <li><a href="biere.html">Biere</a></li>
+        <li><a href="karte.html">Karte</a></li>
         <li><a href="laender.html" aria-current="page">Länder</a></li>
         <li><a href="bewerten.html">Bewerten</a></li>
         <li><a href="about.html">Über</a></li>
@@ -26,55 +28,14 @@
   <main>
     <section aria-labelledby="laender-titel">
       <h1 id="laender-titel">Länder-Wertung</h1>
-      <p class="lead">Durchschnittliche Bewertung aller Biere eines Landes.</p>
+      <p class="lead">Durchschnittliche Bewertung aller Biere eines Landes. Deine eigenen Bewertungen fließen sofort mit ein. Klick auf ein Land, um es auf der Karte zu sehen.</p>
       <table class="ranking">
         <caption>Länder sortiert nach Durchschnittsbewertung (von 5)</caption>
         <thead>
           <tr><th scope="col">Platz</th><th scope="col">Land</th><th scope="col">Bewertung</th><th scope="col">Biere</th></tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <th scope="row">Deutschland</th>
-            <td><meter min="0" max="5" value="4.55">4,55</meter> 4,55</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <th scope="row">Belgien</th>
-            <td><meter min="0" max="5" value="4.55">4,55</meter> 4,55</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <th scope="row">Tschechien</th>
-            <td><meter min="0" max="5" value="4.40">4,40</meter> 4,40</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <th scope="row">Irland</th>
-            <td><meter min="0" max="5" value="4.30">4,30</meter> 4,30</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <th scope="row">USA</th>
-            <td><meter min="0" max="5" value="4.10">4,10</meter> 4,10</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <th scope="row">Japan</th>
-            <td><meter min="0" max="5" value="3.60">3,60</meter> 3,60</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <th scope="row">Mexiko</th>
-            <td><meter min="0" max="5" value="3.10">3,10</meter> 3,10</td>
-            <td>1</td>
-          </tr>
+        <tbody id="laender-tabelle">
+          <tr><td colspan="4">Wertung wird berechnet …</td></tr>
         </tbody>
       </table>
     </section>

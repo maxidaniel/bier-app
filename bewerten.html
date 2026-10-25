@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/bewerten.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -16,6 +17,7 @@
       <ul class="nav-list">
         <li><a href="index.html">Start</a></li>
         <li><a href="biere.html">Biere</a></li>
+        <li><a href="karte.html">Karte</a></li>
         <li><a href="laender.html">Länder</a></li>
         <li><a href="bewerten.html" aria-current="page">Bewerten</a></li>
         <li><a href="about.html">Über</a></li>
@@ -26,22 +28,11 @@
   <main>
     <section aria-labelledby="bewerten-titel">
       <h1 id="bewerten-titel">Bier bewerten</h1>
-      <p class="lead">Du hast ein Bier probiert? Erzähl uns, wie es war.</p>
-      <form class="rating-form" action="/bewertungen" method="post">
-        <label for="bier">Name des Biers</label>
-        <input id="bier" name="bier" type="text" autocomplete="off" required>
-
-        <label for="land">Herkunftsland</label>
-        <select id="land" name="land" required>
+      <p class="lead">Du hast ein Bier probiert? Such es aus der Liste aus und vergib 1 bis 5 Sterne. Danach siehst du sofort, wo es jetzt steht.</p>
+      <form id="bewerten-form" class="rating-form">
+        <label for="bier">Welches Bier hast du probiert?</label>
+        <select id="bier" name="bier" required>
           <option value="">Bitte wählen</option>
-          <option value="de">Deutschland</option>
-          <option value="cz">Tschechien</option>
-          <option value="be">Belgien</option>
-          <option value="ie">Irland</option>
-          <option value="us">USA</option>
-          <option value="jp">Japan</option>
-          <option value="mx">Mexiko</option>
-          <option value="andere">Anderes Land</option>
         </select>
 
         <fieldset>
@@ -60,6 +51,8 @@
 
         <button class="button" type="submit">Bewertung abschicken</button>
       </form>
+
+      <section id="ergebnis" class="ergebnis" aria-live="polite" hidden></section>
     </section>
   </main>
 
