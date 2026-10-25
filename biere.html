@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/biere.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -26,81 +27,19 @@
   <main>
     <section aria-labelledby="biere-titel">
       <h1 id="biere-titel">Alle Biere</h1>
-      <p class="lead">Der Farbstreifen zeigt die echte Bierfarbe, von hellem Lager bis zum schwarzen Stout.</p>
-      <div class="beer-grid">
-        <article class="beer-card">
-          <div class="beer-color ebc-8" aria-hidden="true"></div>
-          <h2>Augustiner Lagerbier Hell</h2>
-          <p class="beer-meta">Deutschland · Helles</p>
-          <p class="beer-rating"><span class="score">4,7</span> von 5</p>
-        </article>
-        <article class="beer-card">
-          <div class="beer-color ebc-8" aria-hidden="true"></div>
-          <h2>Pilsner Urquell</h2>
-          <p class="beer-meta">Tschechien · Pilsner</p>
-          <p class="beer-rating"><span class="score">4,6</span> von 5</p>
-        </article>
-        <article class="beer-card">
-          <div class="beer-color ebc-13" aria-hidden="true"></div>
-          <h2>Westmalle Tripel</h2>
-          <p class="beer-meta">Belgien · Tripel</p>
-          <p class="beer-rating"><span class="score">4,6</span> von 5</p>
-        </article>
-        <article class="beer-card">
-          <div class="beer-color ebc-80" aria-hidden="true"></div>
-          <h2>Guinness Draught</h2>
-          <p class="beer-meta">Irland · Stout</p>
-          <p class="beer-rating"><span class="score">4,3</span> von 5</p>
-        </article>
-        <article class="beer-card">
-          <div class="beer-color ebc-28" aria-hidden="true"></div>
-          <h2>Schneider Weisse Tap 7</h2>
-          <p class="beer-meta">Deutschland · Weißbier</p>
-          <p class="beer-rating"><span class="score">4,4</span> von 5</p>
-        </article>
-        <article class="beer-card">
-          <div class="beer-color ebc-70" aria-hidden="true"></div>
-          <h2>Chimay Blau</h2>
-          <p class="beer-meta">Belgien · Belgian Strong Dark</p>
-          <p class="beer-rating"><span class="score">4,5</span> von 5</p>
-        </article>
-        <article class="beer-card">
-          <div class="beer-color ebc-8" aria-hidden="true"></div>
-          <h2>Budweiser Budvar</h2>
-          <p class="beer-meta">Tschechien · Lager</p>
-          <p class="beer-rating"><span class="score">4,2</span> von 5</p>
-        </article>
-        <article class="beer-card">
-          <div class="beer-color ebc-8" aria-hidden="true"></div>
-          <h2>Sapporo Premium</h2>
-          <p class="beer-meta">Japan · Lager</p>
-          <p class="beer-rating"><span class="score">3,6</span> von 5</p>
-        </article>
-        <article class="beer-card">
-          <div class="beer-color ebc-4" aria-hidden="true"></div>
-          <h2>Corona Extra</h2>
-          <p class="beer-meta">Mexiko · Lager</p>
-          <p class="beer-rating"><span class="score">3,1</span> von 5</p>
-        </article>
-        <article class="beer-card">
-          <div class="beer-color ebc-20" aria-hidden="true"></div>
-          <h2>Sierra Nevada Pale Ale</h2>
-          <p class="beer-meta">USA · Pale Ale</p>
-          <p class="beer-rating"><span class="score">4,1</span> von 5</p>
-        </article>
-        <article class="beer-card">
-          <div class="beer-color ebc-8" aria-hidden="true"></div>
-          <h2>Tegernseer Hell</h2>
-          <p class="beer-meta">Deutschland · Helles</p>
-          <p class="beer-rating"><span class="score">5,0</span> von 5</p>
-        </article>
-      </div>
+      <p class="lead">Der Farbstreifen zeigt die echte Bierfarbe, von hellem Lager bis zum schwarzen Stout. Klick auf ein Bier für alle Details.</p>
+      <form class="suche" role="search">
+        <label for="suche">Bier suchen</label>
+        <input id="suche" name="suche" type="search" placeholder="Name, Land, Sorte oder Brauerei" autocomplete="off">
+      </form>
+      <p id="such-status" class="such-status" aria-live="polite">Biere werden geladen …</p>
+      <div id="bier-liste" class="beer-grid"></div>
     </section>
   </main>
 
   <footer class="site-footer">
     <p>Bierkarte der Welt · Semesterprojekt Web-Applikationen, HTWG Konstanz, WS 2026/27</p>
-    <p>Alle Bewertungen sind Beispieldaten für den Prototyp. Genieße verantwortungsvoll.</p>
+    <p>Bewertungen sind Beispieldaten, Alkoholwerte sind Richtwerte. Genieße verantwortungsvoll.</p>
   </footer>
 </body>
 </html>

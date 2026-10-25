@@ -16,8 +16,14 @@ Die Bierkarte der Welt sammelt Bewertungen von Bieren aus vielen Ländern und re
 | `/biere.html` | Alle Biere mit Farbe, Land, Sorte und Bewertung |
 | `/laender.html` | Länder-Wertung (Durchschnitt pro Land) |
 | `/bewerten.html` | Formular zum Bewerten eines Biers |
+| `/bier.html?id=…` | Detailseite zu einem Bier (z. B. `bier.html?id=tegernseer-hell`) |
 | `/about.html` | Über das Projekt |
 | `/css/style.css` | Gemeinsames Stylesheet für alle Seiten |
+| `/biere.json` | Bier-Daten (werden per `fetch` geladen) |
+| `/js/daten.js` | Gemeinsames Modul: Daten laden, sortieren, Karten bauen |
+| `/js/biere.js` | Bierliste aufbauen + Live-Suche |
+| `/js/bier.js` | Detailseite füllen |
+| `/img/flaggen/` | Flaggen als SVG |
 
 ## Kriterien-Zuordnung M1
 
@@ -40,6 +46,14 @@ python -m http.server 8000
 ```
 Dann http://localhost:8000 öffnen.
 
-## Hinweis
+## JavaScript
 
-Statischer HTML/CSS-Prototyp ohne JavaScript. Alle Bewertungen sind Beispieldaten.
+Auf der Seite „Biere“ werden alle Biere aus `biere.json` geladen und als Karten angezeigt. Über das Suchfeld filtert man sie live nach Name, Land, Sorte oder Brauerei. Ein Klick auf ein Bier öffnet seine Detailseite (`bier.html?id=…`).
+
+Wichtig: Wegen `fetch` und JavaScript-Modulen nicht per Doppelklick öffnen, sondern über den lokalen Server starten (siehe oben).
+
+## Daten und Quellen
+
+- Die Länder sind die zehn Länder mit dem höchsten Bierkonsum pro Kopf 2024 (Kirin Holdings, Global Beer Consumption by Country) plus die Länder aus dem ersten Prototyp.
+- Flaggen: flag-icons von Panayiotis Lipiridis (MIT-Lizenz).
+- Bewertungen sind Beispieldaten, Alkoholwerte sind Richtwerte.

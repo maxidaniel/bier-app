@@ -300,3 +300,88 @@ main {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* ===== Suche (JavaScript) ===== */
+.suche {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  max-width: 32rem;
+  margin-bottom: var(--abstand);
+}
+
+.suche input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  font: inherit;
+  border: 2px solid var(--malz);
+  border-radius: 999px;
+  background: #fff;
+}
+
+.such-status {
+  color: var(--malz);
+  margin: 0 0 var(--abstand);
+}
+
+/* Ganze Karte klickbar: der Link im Titel bekommt eine unsichtbare
+   Fläche (::after), die über die komplette Karte gelegt wird */
+.beer-card-link {
+  position: relative;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.beer-card-link :is(h2, h3) a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.beer-card-link :is(h2, h3) a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.beer-card-link:hover,
+.beer-card-link:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgb(43 26 14 / 0.12);
+  border-color: var(--lager);
+}
+
+/* ===== Detailseite ===== */
+.bier-detail {
+  max-width: 40rem;
+}
+
+.beer-color-gross {
+  width: 100%;
+  height: 1rem;
+  margin-bottom: var(--abstand);
+}
+
+.fakten {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.4rem var(--abstand);
+  margin: var(--abstand) 0;
+}
+
+.fakten dt {
+  font-weight: 600;
+  color: var(--malz);
+}
+
+.fakten dd {
+  margin: 0;
+}
+
+/* ===== Flaggen ===== */
+.flagge {
+  width: 1.3em;
+  height: auto;
+  vertical-align: -0.15em;
+  border: 1px solid var(--kronkorken);
+  border-radius: 2px;
+}
+
